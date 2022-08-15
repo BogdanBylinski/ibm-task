@@ -5,6 +5,10 @@ const UserMove = new mongoose.Schema({
     type: String,
     required: true,
   },
+  companyCode:{
+    type: String,
+    required: true, 
+  },
   dateRangeOne: {
     type: Number,
     required: true,

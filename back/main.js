@@ -10,9 +10,11 @@ app.use(cors());
 
 app.post("/log", async (req, res) => {
     console.log(req.body)
+    
     const newLog = new Log({ ...req.body });
     const insertedLog = await newLog.save();
     return res.status(201).json(insertedLog);
+    
   });
 
 const start = async () => {

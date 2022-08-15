@@ -10,10 +10,10 @@ import {
   
   
   
-  export default function Home({d}) {
+  export default function Chart({d}) {
       console.log(d);
     return (
-      <ResponsiveContainer margin= "0 auto" width="95%" height={400}>
+      <ResponsiveContainer margin= "0 auto" width="95%" height={300}>
         <AreaChart data={d}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -53,10 +53,10 @@ import {
         <div className="custom-tooltip">
           <p className="label">{label} {payload[0].payload.time}</p>
           <p className="label">Value : {payload[0].payload.value}</p>
-          <p className="label">Highest price: {payload[0].payload.highest} </p>
-          <p className="label">Lowest price: {payload[0].payload.lowest} </p>
-          <p className="label">Opening price: {payload[0].payload.open}</p>
-          <p className="label">Closing price: {payload[0].payload.closed}</p>
+          <p className="label">Highest price: {payload[0].payload.highest} $</p>
+          <p className="label">Lowest price: {payload[0].payload.lowest} $</p>
+          <p className="label">Opening price: {payload[0].payload.open} $</p>
+          <p className="label">Closing price: {payload[0].payload.closed} $</p>
         </div>
       );
     }

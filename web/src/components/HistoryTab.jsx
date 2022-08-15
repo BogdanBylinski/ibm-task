@@ -1,7 +1,7 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 // import HistoryList from '../components/HistoryList'
-import Home from './Chart';
+import Chart from './Chart';
 
 function HistoryTab({dataApi}) {
   return (
@@ -13,7 +13,7 @@ function HistoryTab({dataApi}) {
         id="uncontrolled-tab-example"
         >
       <Tab eventKey="graph" title="Graph">
-    <Home d={dataApi}></Home>
+    <Chart d={dataApi}></Chart>
       </Tab> 
      
     </Tabs>
