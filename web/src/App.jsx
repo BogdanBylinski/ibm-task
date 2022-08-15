@@ -251,14 +251,7 @@ function App() {
           </div>
         </div>
 
-        <button
-          onClick={() =>
-            console.log(dateRange[0].getTime(), dateRange[1].getTime())
-          }
-        >
-          timestamps
-        </button>
-        <button onClick={() => createObj()}>symbol</button>
+       
       </div>
     </div>
   );
