@@ -11,7 +11,6 @@ import HistoryTab from "./components/HistoryTab";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [symbol, setSymbol] = useState("");
   const [apiData, setApiData] = useState("no_data");
   const [dateRange, setDateRange] = useState([null, null]);
   const [dateRangeWasNotPicked, setDateRangeWasNotPicked] = useState(0);
@@ -25,7 +24,7 @@ function App() {
       .get(
         `https://finnhub.io/api/v1/stock/profile2?symbol=${search}&token=cbqvcbqad3ibee6m62pg`
       )
-      .then((data) => (console.log(data.data), setArr(data.data)))
+      .then((data) => ( setArr(data.data)))
       .catch((error) => console.log(error));
   };
 
@@ -96,35 +95,7 @@ function App() {
     setApiData(arr);
   };
 
-  const dataStructurization = (data) => {
-    if (data[0] === "no_data") {
-      console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-    } else {
-      const b = Object.values(data);
-      console.log(b);
-      const z = [];
 
-      for (let i = 0; i < b.length; i++) {
-        if (b[i] === "ok") {
-          continue;
-        }
-        for (let k = 0; k < b[i].length; k++) {
-          z[k] = [];
-        }
-      }
-
-      for (let i = 0; i < b.length; i++) {
-        if (b[i] === "ok") {
-          continue;
-        }
-        for (let k = 0; k < b[i].length; k++) {
-          z[k].push(b[i][k]);
-        }
-      }
-
-      setApiData(z);
-    }
-  };
 
   const searchInput = (e) => {
     setError(0)
@@ -139,14 +110,9 @@ function App() {
     setSearch(e.target.value);
     getCompanyProfileData();
   };
-  const searchas = () => {
-    console.log(symbol);
-  };
+ 
 
-  const containsNumber = (str) => {
-    return /[0-9]/.test(str);
-  };
-
+  
   useEffect(() => {
     if (dateRange[0] !== null && dateRange[1] !== null) {
       setDateRangeWasNotPicked(0);
