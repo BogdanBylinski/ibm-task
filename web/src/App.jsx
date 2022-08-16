@@ -77,28 +77,29 @@ function App() {
       )
       .catch((error) => console.log(error));
   };
-  const createObj = (data) => {
-    const arr = [];
-    for (let i = 0; i < data.t.length; i++) {
-      arr.push({
+  const createObj = async (data) => {
+    const obj = [];
+    for (let i = 0; i < await data.t.length; i++) {
+      obj.push({
         date: new Date(data.t[i] * 1000).toISOString().slice(0, 10),
         value: data.v[i],
         open: data.o[i],
         closed: data.c[i],
         highest: data.h[i],
         lowest: data.l[i],
+        companyName: arr.name,
         time: new Date(data.t[i] * 1000)
           .toISOString()
           .split("T")[1]
           .slice(0, 5),
       });
     }
-    setApiData(arr);
+    setApiData(obj);
   };
 
   const searchInput = (e) => {
     setError(0);
-    if (/[^a-z, ]/.test(e.target.value) === true) {
+    if (/[^a-z,A-Z, ]/.test(e.target.value) === true) {
       setError(1);
       return;
     }
@@ -108,6 +109,9 @@ function App() {
     }
     setSearch(e.target.value);
     getCompanyProfileData();
+    if(e.target.value.length===0){
+      setApiData("no_data")
+    }
   };
 
   useEffect(() => {
@@ -141,6 +145,7 @@ function App() {
             <ChartLine
               apiData={apiData}
               dateRangeWasNotPicked={dateRangeWasNotPicked}
+              search={search}
             ></ChartLine>
           </div>
         </div>

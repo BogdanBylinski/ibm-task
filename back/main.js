@@ -16,9 +16,9 @@ app.post("/log", async (req, res) => {
     return res.status(201).json(insertedLog);
 
   } catch {
-        console.log("Error, something wrong with respond object. Nice Try :D");
+        console.log("Error, something is wrong with respond object.");
         res.status(404);
-        res.send({ error: "Post doesn't exist!" });
+        res.send({ error: "Error, something is wrong with respond object." });
   }
 });
 

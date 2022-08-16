@@ -7,14 +7,16 @@ import {
     Tooltip,
     CartesianGrid,
   } from "recharts";
+import useWindowDimensions from "../CustomHook/windowSize";
   
   
-  
-  export default function Chart({d}) {
-      console.log(d);
+  export default function Chart({data, search}) {
+    const { height, width } = useWindowDimensions();
+     
     return (
-      <ResponsiveContainer margin= "0 auto" width="95%" height={300}>
-        <AreaChart data={d}>
+
+      <ResponsiveContainer margin= "0 auto" width="95%" height={height > 800 ? 300 : 200}>
+        <AreaChart data={data}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
@@ -51,6 +53,8 @@ import {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
+
+          <p className="label">{payload[0].payload.companyName}</p>
           <p className="label">{label} {payload[0].payload.time}</p>
           <p className="label">Value : {payload[0].payload.value}</p>
           <p className="label">Highest price: {payload[0].payload.highest} $</p>

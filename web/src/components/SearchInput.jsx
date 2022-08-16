@@ -1,19 +1,14 @@
 import React from 'react'
-
+import {AiOutlineSearch} from 'react-icons/ai'
 function SearchInput({search, searchInput}) {
   return (
     <div className="col-12 mb-4 mt-4 col-md-6">
-    <input
-      className="search"
-      value={search}
+
+  <input type="search" id="form1" class="form-control" placeholder="Search company by code" aria-label="Search"  value={search}
       onChange={(e) => searchInput(e)}
-      type="text"
-      name=""
-      id=""
-      style={{minWidth:`80%`}}
-      placeholder="Search company by code"
-    />
-  </div>
+      style={{minWidth:`80%`}} />
+</div>
+  
   )
 }
 

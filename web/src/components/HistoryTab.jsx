@@ -3,7 +3,7 @@ import Tabs from 'react-bootstrap/Tabs';
 // import HistoryList from '../components/HistoryList'
 import Chart from './Chart';
 
-function HistoryTab({dataApi}) {
+function HistoryTab({dataApi,search}) {
   return (
     <div className="container">
       {
@@ -12,8 +12,8 @@ function HistoryTab({dataApi}) {
         defaultActiveKey="graph"
         id="uncontrolled-tab-example"
         >
-      <Tab eventKey="graph" title="Graph">
-    <Chart d={dataApi}></Chart>
+      <Tab eventKey="graph" title={dataApi[0].companyName}>
+    <Chart data={dataApi} search={search}></Chart>
       </Tab> 
      
     </Tabs>

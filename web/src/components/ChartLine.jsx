@@ -1,6 +1,9 @@
 import React from 'react'
 import HistoryTab from "./HistoryTab";
-function ChartLine({apiData, dateRangeWasNotPicked }) {
+function ChartLine({apiData, dateRangeWasNotPicked ,search}) {
+  if(search.length===0){
+    return ""
+  }
   return (
 
     
@@ -9,7 +12,7 @@ function ChartLine({apiData, dateRangeWasNotPicked }) {
             You have to choose date range
           </div>
         ) : (
-          <HistoryTab dataApi={apiData}></HistoryTab>
+          <HistoryTab dataApi={apiData} search={search}></HistoryTab>
         )
         
   )

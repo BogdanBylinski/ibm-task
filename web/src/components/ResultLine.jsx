@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ResultLine({arr, search, wasDateRangePicked}) {
-    console.log(arr);
+    // console.log("ticker" in arr);
   return (
     <div className="company_container">
     <div className="company_container-top">
@@ -10,7 +10,7 @@ function ResultLine({arr, search, wasDateRangePicked}) {
       <div className="profile-category">Currency</div>
       <div className="profile-category">WebSite</div>
     </div>
-      {arr && search.length>=1 ? 
+      {arr && search.length>=1 && "ticker" in arr ? 
       <>
       
       <div className="company_container-bottom">
