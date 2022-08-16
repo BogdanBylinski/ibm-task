@@ -52,13 +52,10 @@ function App() {
     let a = 0;
     if (dateRange[1].getTime() - dateRange[0].getTime() <= 604800000) {
       a = 4;
-      console.log(a);
     } else if (dateRange[1].getTime() - dateRange[0].getTime() < 15778458000) {
       a = 5;
-      console.log(a);
     } else if (dateRange[1].getTime() - dateRange[0].getTime() >= 15778458000) {
       a = 6;
-      console.log(a);
     }
 
     await axios

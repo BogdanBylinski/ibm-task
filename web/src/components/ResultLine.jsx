@@ -1,7 +1,6 @@
 import React from 'react'
 
 function ResultLine({arr, search, wasDateRangePicked}) {
-    // console.log("ticker" in arr);
   return (
     <div className="company_container">
     <div className="company_container-top">
