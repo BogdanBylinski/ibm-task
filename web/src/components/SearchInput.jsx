@@ -10,6 +10,7 @@ function SearchInput({search, searchInput}) {
       type="text"
       name=""
       id=""
+      style={{minWidth:`80%`}}
       placeholder="Search company by code"
     />
   </div>

@@ -9,13 +9,18 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/log", async (req, res) => {
-    console.log(req.body)
-    
+  try {
     const newLog = new Log({ ...req.body });
     const insertedLog = await newLog.save();
+    console.log(req.body);
     return res.status(201).json(insertedLog);
-    
-  });
+
+  } catch {
+        console.log("Error, something wrong with respond object. Nice Try :D");
+        res.status(404);
+        res.send({ error: "Post doesn't exist!" });
+  }
+});
 
 const start = async () => {
   try {
