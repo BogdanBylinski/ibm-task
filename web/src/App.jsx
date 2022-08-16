@@ -42,6 +42,7 @@ function App() {
         companyCode: arr.ticker,
         dateRangeOne: dateRange[0].getTime() / 1000,
         dateRangeTwo: dateRange[1].getTime() / 1000,
+        whenItwasDone: Date.now(),
       });
     } else {
       setDateRangeWasNotPicked(1);

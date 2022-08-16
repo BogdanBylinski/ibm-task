@@ -9,6 +9,10 @@ const UserMove = new mongoose.Schema({
     type: String,
     required: true, 
   },
+  whenItwasDone:{
+    type: Number,
+    required: true, 
+  },
   dateRangeOne: {
     type: Number,
     required: true,
